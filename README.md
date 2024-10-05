@@ -47,8 +47,8 @@ You can add the 'collection.json' file as Postmen collection to test manually an
 
 1. **Clone the repository:**
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone https://github.com/muradkck98/booksProject-RESTful.git
+   cd booksProject-RESTful
 
 2. **Create .env**
     ```bash
