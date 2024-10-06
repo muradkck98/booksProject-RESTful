@@ -36,8 +36,11 @@ exports.updateBook = async (req, res, next) => {
 
 exports.deleteBook = async (req, res, next) => {
   try {
-    await bookService.deleteBook(req.params.id);
-    res.status(204).send();
+    const book = await bookService.deleteBook(req.params.id);
+    if (!book) {
+      return res.status(404).json({ message: 'Book not found' });
+    }
+    res.status(200).json({ message: 'Book deleted successfully', bookId: book._id });
   } catch (error) {
     next(error);
   }

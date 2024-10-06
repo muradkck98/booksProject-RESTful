@@ -1,13 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
 const bookRoutes = require('./routes/bookRoutes');
 const { errorHandler } = require('./utils/errorHandler');
+const connectToDatabase = require('./database');
 const config = require('./config');
 
 const app = express();
 const PORT = config.port;
-const MONGO_URI = config.mongoURI;
 
 // Middleware
 app.use(bodyParser.json());
@@ -15,10 +14,12 @@ app.use('/api/books', bookRoutes);
 app.use(errorHandler);
 
 // MongoDB Connection
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+connectToDatabase()
   .then(() => {
     app.listen(PORT, () => {
       console.log(`Server running on http://localhost:${PORT}`);
     });
   })
-  .catch((error) => console.error('MongoDB connection error:', error));
+  .catch((error) => {
+    console.error('Failed to start server due to database connection error:', error);
+  });
