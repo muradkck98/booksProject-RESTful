@@ -69,8 +69,6 @@ To run the application locally or in a containerized environment, you will need:
 3. **Run the application using Docker Compose:**
     ```bash
     docker-compose up app
-
-
 ### Test:
 
 #### Manual API Testing (Postman Collection):
