@@ -51,7 +51,7 @@ The following endpoints allow for full CRUD functionality:
 To run the application locally or in a containerized environment, you will need:
 
 - [Docker](https://docs.docker.com/get-docker/) installed on your machine.
-- [Node.js](https://nodejs.org/) and npm (if not using Docker).
+- [Node.js](https://nodejs.org/).
 
 ### **Installation and Setup**
 
